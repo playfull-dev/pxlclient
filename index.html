@@ -44,12 +44,12 @@
   <script>
     function downloadZip() {
       // Change this URL to your real zip file location
-      const zipUrl = "https://example.com/my-awesome-project.zip";
+      const zipUrl = "https://drive.google.com/drive/folders/1NLjSkyElTAwPgGe8hNHyG9UXZvX2dA2m?usp=drive_link";
       // or a relative path: "downloads/my-project-v1.2.zip"
 
       const link = document.createElement("a");
       link.href = zipUrl;
-      link.download = "my-project-folder.zip";   // name that appears in downloads
+      link.download = "PXL.zip";   // name that appears in downloads
       // link.download = "";                     // ← if you want to keep server's original name
 
       document.body.appendChild(link);
