@@ -1,0 +1,47 @@
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace PXLClient
+{
+    class Program : Form
+    {
+        public Program()
+        {
+            // Window settings
+            this.Text = "PXL Client";
+            this.Size = new Size(400, 300);
+            this.BackColor = ColorTranslator.FromHtml("#09090b");
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Button
+            Button btn = new Button();
+            btn.Text = "Download PXL";
+            btn.Size = new Size(200, 55);
+            btn.Location = new Point(100, 110);
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.BackColor = ColorTranslator.FromHtml("#6366f1");
+            btn.ForeColor = Color.White;
+            btn.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btn.FlatAppearance.BorderSize = 0;
+            btn.Cursor = Cursors.Hand;
+            btn.Click += new EventHandler(DownloadZip);
+
+            this.Controls.Add(btn);
+        }
+
+        void DownloadZip(object sender, EventArgs e)
+        {
+            string url = "https://drive.google.com/drive/folders/1NLjSkyElTAwPgGe8hNHyG9UXZvX2dA2m?usp=drive_link";
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+        }
+
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.Run(new Program());
+        }
+    }
+}
