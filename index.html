@@ -1,2 +1,62 @@
 <h1 align="center"><img src="asset/ascii-art-text.png" width="40%"><br> </h1>
 <p align="center">Digital PXL - PXL perfect <br> <i></i><br><br>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Download ZIP Button</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      background: #0f0f1a;
+      color: #e0e0ff;
+    }
+    button {
+      padding: 16px 36px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(145deg, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+      transition: all 0.25s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(99, 102, 241, 0.55);
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+
+  <button onclick="downloadZip()">Download ZIP Folder</button>
+
+  <script>
+    function downloadZip() {
+      // Change this URL to your real zip file location
+      const zipUrl = "https://example.com/my-awesome-project.zip";
+      // or a relative path: "downloads/my-project-v1.2.zip"
+
+      const link = document.createElement("a");
+      link.href = zipUrl;
+      link.download = "my-project-folder.zip";   // name that appears in downloads
+      // link.download = "";                     // ← if you want to keep server's original name
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+
+</body>
+</html>
